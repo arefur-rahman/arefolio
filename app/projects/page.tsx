@@ -1,10 +1,40 @@
 import Footer from "@/components/footer";
+import {
+    Pagination,
+    PaginationContent,
+    PaginationItem,
+    PaginationLink,
+    PaginationNext,
+    PaginationPrevious,
+} from "@/components/ui/pagination";
 import { projects } from "@/lib/projects";
 import { IconBrandGithub } from "@tabler/icons-react";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
-export default function ProjectsPage() {
+export default async function ProjectsPage({
+    searchParams,
+}: {
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+    const resolvedParams = await searchParams;
+    const pageParam = resolvedParams.page;
+    const page = typeof pageParam === "string" ? parseInt(pageParam, 10) : 1;
+    const currentPage = isNaN(page) || page < 1 ? 1 : page;
+
+    const limitParam = resolvedParams.limit;
+    const limit = typeof limitParam === "string" ? parseInt(limitParam, 10) : 5;
+    const ITEMS_PER_PAGE = isNaN(limit) || limit < 1 ? 5 : limit;
+
+    const totalProjects = projects.length;
+    const totalPages = Math.ceil(totalProjects / ITEMS_PER_PAGE) || 1;
+
+    const safeCurrentPage = Math.min(currentPage, totalPages);
+    const startIndex = (safeCurrentPage - 1) * ITEMS_PER_PAGE;
+    const currentProjects = projects.slice(
+        startIndex,
+        startIndex + ITEMS_PER_PAGE,
+    );
     return (
         <div className="flex-1 flex flex-col p-6 md:p-10 lg:p-16 min-h-screen">
             {/* Page Header */}
@@ -22,10 +52,40 @@ export default function ProjectsPage() {
                 </p>
             </div>
 
+            {/* List Controls */}
+            <div className="flex justify-between items-center mb-6">
+                <div className="font-mono text-xs text-muted-foreground">
+                    Showing {startIndex + 1}-
+                    {Math.min(startIndex + ITEMS_PER_PAGE, totalProjects)} of{" "}
+                    {totalProjects} projects
+                </div>
+                <div className="flex items-center gap-2 font-mono text-xs">
+                    <span className="text-muted-foreground uppercase tracking-wider">
+                        Per Page:
+                    </span>
+                    {[5, 10, 20].map((num) => (
+                        <Link
+                            key={num}
+                            href={`/projects?page=1&limit=${num}`}
+                            className={`px-2 py-1 border-2 transition-colors ${
+                                ITEMS_PER_PAGE === num
+                                    ? "border-foreground bg-primary text-primary-foreground font-bold"
+                                    : "border-transparent hover:border-foreground"
+                            }`}
+                        >
+                            {num}
+                        </Link>
+                    ))}
+                </div>
+            </div>
+
             {/* Projects List */}
             <div className="flex flex-col gap-8">
-                {projects.map((project, index) => {
-                    const numberStr = String(index + 1).padStart(2, "0");
+                {currentProjects.map((project, index) => {
+                    const numberStr = String(startIndex + index + 1).padStart(
+                        2,
+                        "0",
+                    );
                     return (
                         <article
                             key={project.slug}
@@ -105,6 +165,53 @@ export default function ProjectsPage() {
                     );
                 })}
             </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+                <div className="mt-12 mb-8 border-2 border-foreground p-4 bg-card brutal-shadow">
+                    <Pagination>
+                        <PaginationContent className="flex flex-wrap gap-2">
+                            {safeCurrentPage > 1 && (
+                                <PaginationItem>
+                                    <PaginationPrevious
+                                        href={`/projects?page=${safeCurrentPage - 1}&limit=${ITEMS_PER_PAGE}`}
+                                        className="font-mono text-xs uppercase font-bold border-2 border-transparent hover:border-foreground transition-all"
+                                    />
+                                </PaginationItem>
+                            )}
+
+                            {Array.from({ length: totalPages }).map((_, i) => {
+                                const p = i + 1;
+                                const isActive = p === safeCurrentPage;
+                                return (
+                                    <PaginationItem key={p}>
+                                        <PaginationLink
+                                            href={`/projects?page=${p}&limit=${ITEMS_PER_PAGE}`}
+                                            isActive={isActive}
+                                            className={
+                                                isActive
+                                                    ? "font-mono text-sm font-bold border-2 border-foreground bg-primary text-primary-foreground dark:bg-primary dark:text-primary-foreground dark:hover:bg-primary dark:hover:text-primary-foreground"
+                                                    : "font-mono text-sm font-bold border-2 border-transparent hover:border-foreground transition-all"
+                                            }
+                                        >
+                                            {p}
+                                        </PaginationLink>
+                                    </PaginationItem>
+                                );
+                            })}
+
+                            {safeCurrentPage < totalPages && (
+                                <PaginationItem>
+                                    <PaginationNext
+                                        href={`/projects?page=${safeCurrentPage + 1}&limit=${ITEMS_PER_PAGE}`}
+                                        className="font-mono text-xs uppercase font-bold border-2 border-transparent hover:border-foreground transition-all"
+                                    />
+                                </PaginationItem>
+                            )}
+                        </PaginationContent>
+                    </Pagination>
+                </div>
+            )}
 
             {/* Footer */}
             <Footer />

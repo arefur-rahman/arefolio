@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Arefolio ⚡
 
-## Getting Started
+[![Vercel](https://img.shields.io/badge/Vercel-Live_Demo-black?style=for-the-badge&logo=vercel)](https://arefolio.vercel.app/)
 
-First, run the development server:
+The personal portfolio and project showcase of **Arefur Rahman**. Built with an unapologetic brutalist aesthetic, utilizing sharp corners, high-contrast borders, and custom interactions.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A bleeding-edge, high-performance stack:
+- **Framework:** [Next.js 16 (App Router)](https://nextjs.org/)
+- **Library:** [React 19](https://react.dev/)
+- **Styling:** [Tailwind CSS 4](https://tailwindcss.com/)
+- **Components:** [shadcn/ui](https://ui.shadcn.com/) & [Radix UI](https://www.radix-ui.com/)
+- **Mobile Navigation:** [Vaul](https://github.com/emilkowalski/vaul) for native-feeling responsive drawers
+- **Icons:** [Tabler Icons](https://tabler-icons.io/) & [Lucide React](https://lucide.dev/)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Brutalist Aesthetics:** Monospace typography, thick borders, harsh shadows, and zero border radius.
+- **Project Case Studies:** Deep dives into the technical challenges and solutions for various full-stack applications.
+- **Dynamic Pagination:** Server-side rendered pagination for seamless project browsing.
+- **Responsive Layout:** A heavily customized sidebar that cleanly morphs into a bottom-drawer on mobile devices.
 
-## Learn More
+## 🛠️ Local Development
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/arefur-rahman/arefolio.git
+   cd arefolio
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Install dependencies**
+   ```bash
+   pnpm i
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Start the development server**
+   ```bash
+   pnpm dev
+   ```
+   *Note: The dev script automatically clears the `.next` cache to ensure a clean build environment.*
 
-## Deploy on Vercel
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📄 License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is open source and available under the [MIT License](LICENSE).

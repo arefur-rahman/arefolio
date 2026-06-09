@@ -23,48 +23,57 @@ export interface Project {
 export const projects: Project[] = [
     {
         slug: "shodaighorbd",
-        title: "ShodaiGhorBD",
-        subtitle: "Full-scale e-commerce for a local Bangladeshi grocery brand",
+        title: "Shodai Ghor BD",
+        subtitle: "Modern e-commerce platform with 3D product visualizations",
         description:
-            "A fast, lightweight e-commerce platform built for a client in Lakshmipur, designed to operate smoothly on 3G networks.",
+            "A fast, responsive e-commerce web application featuring dynamic animations and 3D product views, built with Next.js 16 and React 19.",
         longDescription:
-            "ShodaiGhorBD is a live client project built to digitize grocery shopping and home delivery in Lakshmipur. Knowing that target users often browse on slower mobile networks and entry-level phones, the platform focuses on speed, light assets, and minimal friction. It includes real-time order notifications, simplified checkout, and an admin interface to manage inventory.",
+            "Shodai Ghor BD is a proprietary, full-scale e-commerce platform leveraging the Next.js App Router. It combines powerful technologies like Firebase, MongoDB, and Framer Motion to deliver a fast, responsive, and visually appealing user experience. It features rich UI components, 3D product visualizations, transactional emails, and robust data handling.",
         tags: [
             "Next.js",
-            "Firebase",
-            "Tailwind CSS",
             "React",
+            "Three.js",
+            "React Query",
+            "shadcn/ui",
+            "Firebase",
             "MongoDB",
-            "Mongoose",
-            "TypeScript",
         ],
         role: "Lead Fullstack Developer",
-        client: "ShodaiGhorBD",
+        client: "Shodai Ghor BD",
         year: "2025",
         links: {
             live: "https://shodaighorbd.com",
+            github: "https://github.com/arefur-rahman/shodaighorbd.git",
         },
         caseStudy: {
             challenge:
-                "Most e-commerce templates are bloated with heavy images, tracking scripts, and complex layouts. For local customers in Lakshmipur, this meant slow loads, high bandwidth consumption, and abandoned carts before the checkout form could even render.",
+                "Modern e-commerce requires highly engaging user interfaces that don't compromise on performance. Balancing rich features like 3D product rendering and complex animations with fast load times and SEO was critical.",
             solution:
-                "I built a customized Next.js application using Server-Side Rendering (SSR) to deliver pre-rendered HTML instantly. Images are aggressively optimized using Next/Image, and Tailwind's utility-first styling keeps the bundle tiny. Real-time cart updates and order triggers use Firebase Cloud Firestore for instant synchronization with the delivery team's dashboard.",
+                "Leveraged Next.js 16 App Router for optimized rendering and routing. Integrated Three.js and React Three Fiber for lightweight, interactive 3D product visualizations. Utilized Motion for smooth, dynamic UI transitions while keeping the core experience highly accessible using shadcn/ui and Radix UI.",
             techDetail:
-                "Utilized Firebase Authentication for phone/password login, Cloud Firestore for real-time order streams, and Next.js App Router for optimized static and dynamic segments. State is managed locally through React Context to avoid heavy third-party state managers.",
+                "State and data fetching are handled efficiently via React Query. The backend relies on Firebase for authentication, alongside MongoDB (via Mongoose) for robust catalog and order management. Forms are strictly validated using React Hook Form, and transactional emails are dispatched via Resend.",
             retrospective:
-                "The client wanted a fancy spinning loader, but I convinced them that a page loading in 1.2s without a loader is better. E-commerce in our towns doesn't need complex credit card processing up front—95% is Cash on Delivery. Designing for actual user behaviors saved months of development.",
+                "Integrating 3D elements inside a fast Next.js application taught me how to properly lazy-load heavy webGL contexts. Managing complex state across a full-stack application became significantly easier using React Query compared to traditional context-heavy approaches. The end result is a premium, high-performance shopping experience.",
         },
     },
     {
         slug: "warmup",
         title: "WarmUp",
         subtitle:
-            "Winter clothes donation platform with Apple-inspired styling",
+            "Modern donation platform connecting donors with meaningful causes",
         description:
-            "A community platform matching donors with local volunteers distributing winter clothing in northern Bangladesh.",
+            "A responsive, community-driven platform facilitating both monetary and in-kind donations across diverse charitable campaigns.",
         longDescription:
-            "During cold waves in Bangladesh, rural communities face severe weather. WarmUp connects people who have surplus clothes with student volunteer organizations that handle logistics. The UI is built around visual polish, utilizing macOS-style glassmorphism to create a premium feel that grabs attention and builds trust.",
-        tags: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
+            "WarmUp is a comprehensive donation platform built to bridge the gap between donors and causes like education, disaster relief, and healthcare. It features secure Firebase authentication, detailed campaign management, and a highly polished UI. Utilizing modern 'glassmorphism' effects and a sky blue color palette, it creates a premium, trustworthy experience that encourages community engagement.",
+        tags: [
+            "React 19",
+            "Vite",
+            "Tailwind CSS v4",
+            "DaisyUI",
+            "Firebase",
+            "Radix UI",
+            "Material-UI",
+        ],
         role: "Frontend Developer & UI Designer",
         client: "Academic Project",
         year: "2024",
@@ -74,57 +83,99 @@ export const projects: Project[] = [
         },
         caseStudy: {
             challenge:
-                "Charity sites often feel depressing or outdated. We wanted a UI that felt extremely modern, clean, and interactive—encouraging younger demographics to sign up, catalog items, and coordinate collection runs.",
+                "Charitable platforms often struggle with outdated interfaces and a lack of transparency, which can deter younger demographics from engaging or trusting the platform with their donations.",
             solution:
-                "I designed a 'liquid glass' UI using advanced CSS backdrop-blur filters, dynamic gradients, and Framer Motion micro-interactions. The interface mimics Apple's macOS control widgets, with floating glass cards that respond to mouse movement and hover interactions.",
+                "Designed a 'LiquidGlass' UI featuring advanced CSS backdrop-blur filters to create an elegant, modern aesthetic. Integrated Firebase for secure user management and built a robust campaign categorization system to make discovering and tracking donations seamless and transparent.",
             techDetail:
-                "Built using Vite, Tailwind CSS v3 (using custom classes for backdrop-filters), and Framer Motion for scroll-linked animations and smooth card expansions. We designed custom SVG icons that adapt to light and dark theme boundaries.",
+                "Built with React 19 and Vite. The UI leverages Tailwind CSS v4 alongside DaisyUI, Radix UI primitives, and Material-UI for accessible, rich components. Integrated Firebase 11 for real-time database and auth capabilities, plus Howler.js for interactive audio feedback.",
             retrospective:
-                "I spent hours writing custom CSS equations for standard glass filters when Tailwind's utility classes could get me 90% there. It was a good lesson: visual flair is great, but don't let it block core forms. I ended up rewriting the registration form to be dead-simple and high-contrast so volunteers on the move could use it easily.",
+                "Combining multiple UI libraries (DaisyUI, Radix, MUI) taught me how to strictly manage component styling without class collisions. Rebuilding the registration and donation flows to be mobile-first and touch-friendly drastically improved usability, proving that aesthetics should never block core functionality.",
+        },
+    },
+    {
+        slug: "thaprathapri",
+        title: "Thaprathapri",
+        subtitle:
+            "Satirical 'Personal Problem Solving' service with a premium UI",
+        description:
+            "A high-performance parody web application offering fictional score-settling services wrapped in a sleek, modern interface.",
+        longDescription:
+            "Thaprathapri (থাপড়াথাপড়ি) is a satirical web application designed to look like a premium personal problem-solving agency. Whether it's a friend who won't return borrowed money or a cheating ex, it offers 'services' organized into tiers (Basic, Standard, Premium, Combo). The joke is delivered through a hyper-polished, serious interface built with vibrant gradients and glassmorphism.",
+        tags: [
+            "Next.js 16",
+            "React 19",
+            "Tailwind CSS 4",
+            "Framer Motion",
+            "Shadcn/UI",
+        ],
+        role: "Creator",
+        client: "Personal Project",
+        year: "2025",
+        links: {
+            github: "https://github.com/arefur-rahman/thaprathapri.git",
+            live: "https://thaprathapri.vercel.app/",
+        },
+        caseStudy: {
+            challenge:
+                "Satire only works if the presentation is completely believable. The challenge was to build a UI so premium and fast that users momentarily question if these ridiculous 'services' are actually real.",
+            solution:
+                "Built a high-performance frontend using Next.js 16 App Router and React 19. Designed a dark/light mode balanced aesthetic with Tailwind CSS 4, and used Framer Motion for smooth, serious-feeling entrance animations and hover states.",
+            techDetail:
+                "Leveraged Shadcn/UI and Radix UI primitives to rapidly build accessible, complex components like tiered pricing cards and modals. Custom React hooks handle the state logic for browsing and 'selecting' the fake services.",
+            retrospective:
+                "Building a joke project with production-grade tools was incredibly fun. It proved that applying strict TypeScript types and robust Next.js routing to ridiculous content is great practice for actual client work—and it makes the punchline land much harder.",
         },
     },
     {
         slug: "qibla-direction",
-        title: "Direction to Qibla",
-        subtitle:
-            "Lightweight tool to find Qibla direction using device geolocation",
+        title: "Qibla Direction Finders",
+        subtitle: "High-precision real-time compass with premium aesthetics",
         description:
-            "A fast, ad-free web utility calculating Kaaba bearing from coordinates, using device compass and location API.",
+            "A beautifully crafted web application calculating Kaaba bearing from exact coordinates using device GPS and magnetometer APIs.",
         longDescription:
-            "Qibla Direction is a utility web application designed to help users determine the exact direction of the Kaaba from any location worldwide. By utilizing the browser's native Geolocation and DeviceOrientation APIs, it computes the spherical navigation angle (bearing) without requiring heavy map libraries or native app installation.",
+            "Qibla Direction is a sleek, mobile-first utility web application. It determines the exact direction of the Kaaba from any location worldwide using the Great Circle Distance (Haversine-like) formula. Featuring a 'hybrid compass' rotating dial system and a premium dark mode aesthetic with emerald accents, it delivers precise live heading updates straight from the browser.",
         tags: [
-            "React",
+            "React 19",
+            "TypeScript",
+            "Vite",
+            "Tailwind CSS v4",
             "Geolocation API",
             "Device Orientation",
-            "Tailwind CSS",
         ],
         role: "Creator",
         client: "Personal Utility",
-        year: "2024",
+        year: "2025",
         links: {
             live: "https://direction-to-qibla.vercel.app",
             github: "https://github.com/arefur-rahman/direction-to-qibla.git",
         },
         caseStudy: {
             challenge:
-                "Most Qibla finder apps are bloated, filled with popup ads, or require App Store/Play Store downloads. Users in remote areas need a simple, single-purpose webpage that works instantly without high data costs.",
+                "Most compass apps either require native installation or feature bloated interfaces with ads. Building a seamless, high-precision compass entirely on the web—especially one that handles real-time sensor streams smoothly—is notoriously difficult due to mobile browser security limitations.",
             solution:
-                "I implemented a static web page that requests location permission once, calculates the mathematical bearing to Mecca using the great-circle formula, and displays a clean compass interface. It functions entirely on the client-side.",
+                "Developed a highly optimized React 19 application utilizing Vite and Tailwind CSS v4. It securely requests location permissions and leverages device GPS alongside the magnetometer to construct a hybrid, real-time rotating dial system that strictly mimics a physical compass.",
             techDetail:
-                "Formulated the mathematical bearing: θ = atan2(sin(Δλ)·cos(φ₂), cos(φ₁)·sin(φ₂) − sin(φ₁)·cos(φ₂)·cos(Δλ)), where φ₁ is current latitude, φ₂ is Mecca latitude (21.4225° N), and Δλ is longitude difference. If DeviceOrientation is supported, the compass rotates dynamically using CSS transforms.",
+                "Calculates exact bearings via the Great Circle Distance formula. It hooks into the browser's Geolocation and DeviceOrientation event listeners to constantly update the CSS transform rotation of the compass dial, applying glassmorphism and emerald accents for a premium feel.",
             retrospective:
-                "iOS Safari has strict security restrictions on compass permissions (DeviceOrientationEvent.requestPermission). Debugging this on a physical iPhone without a Mac console was a nightmare. I had to learn how to write a clean button toggle that prompts the user for permissions explicitly before requesting the sensor stream.",
+                "Handling `DeviceOrientationEvent.requestPermission` on iOS Safari requires explicit user gestures and careful error handling. Overcoming these strict security measures on physical devices without a native console was challenging, but the resulting pure-client, install-free experience proved completely worth the effort.",
         },
     },
     {
         slug: "napa-counter",
-        title: "NAPA Counter",
-        subtitle: "Tarawih prayer rakaat tracker",
+        title: "NaPa Counter",
+        subtitle: "The Ultimate Dose Tracker with premium dark-mode aesthetics",
         description:
-            "A simple tap-to-count utility designed to keep track of completed rakaats during Ramadan night prayers.",
+            "A sleek, high-performing web application designed to track pill intake with native Bengali numerals and hardware-accelerated animations.",
         longDescription:
-            "Ramadan night prayers (Tarawih) are 20 rakaats. It's surprisingly easy to lose track of whether you've completed 12 or 14 rakaats during long sessions. NAPA Counter is a minimal web application where a user tap registers each completed unit. The name is a local joke—referencing a politician's funny remarks—but the utility is 100% practical.",
-        tags: ["Next.js", "LocalStorage", "Web Audio API", "Tailwind CSS"],
+            "NaPa Counter transforms the mundane task of tracking medication into a premium, tactile experience. Designed with a custom Dark Teal palette, it features dynamic progress bars, keyboard 'God Mode' shortcuts, and persistent LocalStorage sessions. It completely ditches boring spreadsheets for a highly aesthetic, fluid counting experience.",
+        tags: [
+            "React 19",
+            "Vite",
+            "Tailwind CSS 4",
+            "Shadcn UI",
+            "Framer Motion",
+            "LocalStorage",
+        ],
         role: "Creator",
         client: "Personal Project",
         year: "2025",
@@ -134,13 +185,13 @@ export const projects: Project[] = [
         },
         caseStudy: {
             challenge:
-                "When praying, you want zero visual distractions. You also don't want the app to lose its count if the page refreshes, your phone locks, or the browser goes to sleep to save memory.",
+                "Tracking daily doses or repetitive tasks is usually handled by clunky apps or boring spreadsheets. The goal was to build a tracker that feels as premium, fast, and satisfying to use as a high-end code editor.",
             solution:
-                "I designed a full-screen tap target with a dark, high-contrast, zero-glare layout. The state is synced with LocalStorage on every tap. When the counter reaches 20, the screen flashes and plays a soft chime using the Web Audio API (so it doesn't need external audio files).",
+                "Developed a highly responsive Vite + React 19 application utilizing Framer Motion for smooth, hardware-accelerated transitions. Implemented strict keyboard listeners for a 'God Mode' navigation experience (Space to tap, Escape to abort) and integrated native Bengali numeral formatting.",
             techDetail:
-                "Built with Next.js App Router. Uses React hooks to track state and sync with `window.localStorage`. The sound is synthesized on-the-fly using a Web Audio API oscillator node, creating a pleasant sine-wave notification at 20 rakaats.",
+                "Built completely client-side using Tailwind CSS 4 and Shadcn UI components for rapid, accessible styling. State is instantly synced with LocalStorage to prevent accidental data loss on reloads, while dynamic UI elements transition seamlessly from 'Resting Red' to 'Emerald Success'.",
             retrospective:
-                "The name 'NAPA' started as a meme in Lakshmipur, which actually got my friends to use it. The feedback was immediate: 'Make the button bigger.' Now the entire screen is the button. You don't even have to look at it, just tap anywhere while standing up.",
+                "Adding full keyboard support combined with auto-focus made the app feel incredibly fast—proving that web utilities don't need to feel like 'websites'. The feedback loop of typing to count, combined with fluid Framer Motion animations, created an unexpectedly addictive user experience.",
         },
     },
     {
@@ -171,14 +222,23 @@ export const projects: Project[] = [
     },
     {
         slug: "kaja-namaz-volume",
-        title: "Kaja Namaz Volume",
-        subtitle: "A quiet tool for a personal debt",
+        title: "Kaja Namajer Hishab",
+        subtitle: "Full-stack web application for tracking missed prayers",
         description:
-            "A minimalist tracker for logging and managing missed (kaza) prayers — private and zero-friction.",
+            "A modern React frontend and Express/MongoDB backend for securely logging and managing missed (kaza) prayers across devices.",
         longDescription:
-            "Kaja Namaz Volume is a no-frills prayer debt tracker. It lets you log missed prayers by waqt, track how many you have made up, and see what is remaining. Built entirely for personal use.",
-        tags: ["React", "mongodb", "Tailwind CSS"],
-        role: "Creator",
+            "Kaja Namajer Hishab is a comprehensive tracker designed to help users honestly manage their prayer debts. Featuring a secure Firebase authentication layer and a custom Express REST API connected to MongoDB, it ensures your data syncs reliably across all your devices. The UI is clean, responsive, and mobile-first, utilizing DaisyUI and Tailwind CSS for zero-friction daily usage.",
+        tags: [
+            "React 19",
+            "Vite",
+            "Tailwind CSS 4",
+            "DaisyUI",
+            "Firebase Auth",
+            "Node.js",
+            "Express",
+            "MongoDB",
+        ],
+        role: "Personal Project",
         client: "Personal Project",
         year: "2025",
         links: {
@@ -187,13 +247,13 @@ export const projects: Project[] = [
         },
         caseStudy: {
             challenge:
-                "Keeping an honest count of kaza prayers is something most people quietly struggle with. The count builds up over time, mental math gets unreliable, and there was no simple tool that was private, and actually designed for this specific need.",
+                "Keeping an honest count of kaza prayers is a personal struggle that mental math often fails to solve. The challenge was building a private, secure tool that syncs across multiple devices, so users aren't locked to local storage on a single phone.",
             solution:
-                "Built a single-page tracker with per-waqt counters (Fajr, Dhuhr, Asr, Maghrib, Isha) that persists entirely in mongodb. Just signin and update your history. I wanted to keep it in localstorage but I need it in multiple devices.",
+                "Developed a robust full-stack architecture. The frontend is built with React 19 and Vite for blazing fast loads, styled with DaisyUI. The backend is a custom Node.js/Express server that securely manages prayer records in a MongoDB database, with access strictly controlled via Firebase Authentication.",
             techDetail:
-                "Pure React with useState and useEffect for state management. All data stored in mongodb so the data can be get by signed in in multiple devices. Designed mobile-first since this is the kind of app you open on your phone between tasks.",
+                "The frontend leverages React Context for state management and Axios for API communication. The REST API exposes secure endpoints for fetching and updating per-waqt counters. CORS and JSON middleware ensure smooth and secure cross-origin requests between the frontend and the backend.",
             retrospective:
-                "This was never meant to be a portfolio project. Built for myself in a couple of hours. It ended up being the most personally useful thing I have ever built — which says something about what kinds of tools are actually worth making.",
+                "What started as a simple local storage tracker evolved into a fully integrated MERN-stack utility. Moving from local state to a secure cloud database taught me invaluable lessons about auth flows, CORS management, and structuring RESTful endpoints. It remains my most personally useful build.",
         },
     },
 ];
