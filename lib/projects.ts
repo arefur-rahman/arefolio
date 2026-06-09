@@ -256,6 +256,39 @@ export const projects: Project[] = [
                 "What started as a simple local storage tracker evolved into a fully integrated MERN-stack utility. Moving from local state to a secure cloud database taught me invaluable lessons about auth flows, CORS management, and structuring RESTful endpoints. It remains my most personally useful build.",
         },
     },
+    {
+        slug: "arefolio",
+        title: "Arefolio",
+        subtitle: "Brutalist personal portfolio and project showcase",
+        description:
+            "A bleeding-edge, high-performance portfolio built with Next.js 16 and React 19, featuring brutalist aesthetics and native-feeling mobile drawers.",
+        longDescription:
+            "Arefolio is my personal playground and professional showcase. It's built with an unapologetic brutalist aesthetic—utilizing sharp corners, high-contrast borders, and custom interactions. Beyond the visuals, it is highly optimized with server-side rendered pagination and dynamic case studies.",
+        tags: [
+            "Next.js 16",
+            "React 19",
+            "Tailwind CSS 4",
+            "shadcn/ui",
+            "Vaul",
+        ],
+        role: "Creator & Developer",
+        client: "Personal Portfolio",
+        year: "2026",
+        links: {
+            live: "https://arefolio.vercel.app/",
+            github: "https://github.com/arefur-rahman/arefolio.git",
+        },
+        caseStudy: {
+            challenge:
+                "Most developer portfolios fall into the trap of using generic templates or overly bloated 3D animations that distract from the actual work. I needed a portfolio that was distinctly 'me'—fast, highly readable, and aesthetically brutal.",
+            solution:
+                "Designed a brutalist interface from scratch using Tailwind CSS 4. Integrated 'Vaul' for smooth, native-feeling mobile drawers, and built a custom server-side pagination system for browsing projects without client-side lag.",
+            techDetail:
+                "Leveraged Next.js 16 App Router for robust routing and React 19 for advanced component rendering. Components were rapidly prototyped with shadcn/ui and heavily customized to remove border-radiuses and inject harsh drop shadows. Data is managed through a typed local CMS structure.",
+            retrospective:
+                "Building Arefolio taught me that breaking standard UI rules (like adding thick borders and zero radiuses) requires immense attention to detail to keep the layout from feeling broken. It also solidified my love for the latest React primitives and the speed of Next.js.",
+        },
+    },
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {
